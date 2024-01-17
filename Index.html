@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Comparison Program</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Text Comparison Program</h1>
+  <p>Enter the original text and the typed text in the text areas below and click the compare button to see the differences.</p>
+  <div class="container">
+    <div class="text-area">
+      <label for="original">Original Text</label>
+      <textarea id="original" rows="10" cols="50"></textarea>
+    </div>
+    <div class="text-area">
+      <label for="typed">Typed Text</label>
+      <textarea id="typed" rows="10" cols="50"></textarea>
+    </div>
+  </div>
+  <button id="compare">Compare</button>
+  <div class="output">
+    <label for="result">Output Text</label>
+    <textarea id="result" rows="10" cols="100" readonly></textarea>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
