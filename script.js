@@ -80,10 +80,10 @@ function markDifferences() {
 
 // The function to display the output text on the web page
 function displayOutput() {
-  // Get the output text area
+  // Get the output div
   var output = document.getElementById("result");
-  // Set the output text area value to the output text
-  output.value = outputText;
+  // Set the output div inner HTML to the output text
+  output.innerHTML = outputText;
   // Reset the output text
   outputText = "";
 }
