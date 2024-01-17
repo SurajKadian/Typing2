@@ -1,7 +1,10 @@
 // The script for the text comparison program
 
-// The variable to store the output text
+// The variables to store the output text and the number of mistakes
 var outputText = "";
+var spellingMistakes = 0;
+var missingWords = 0;
+var extraWords = 0;
 
 // The function to get the input texts and split them into words
 function getInputTexts() {
@@ -38,6 +41,8 @@ function compareWords(originalWords, typedWords) {
     else if (originalWords[originalIndex + 1] === typedWord) {
       // If yes, it means the current word in the original array is missing in the typed array, so mark it as green and bold
       outputText += "<span class='missing'>" + originalWord + "</span> ";
+      // Increment the number of missing words
+      missingWords++;
       // Increment only the original index
       originalIndex++;
     }
@@ -45,12 +50,16 @@ function compareWords(originalWords, typedWords) {
     else if (typedWords[typedIndex + 1] === originalWord) {
       // If yes, it means the current word in the typed array is extra in the typed array, so mark it as blue and line-through
       outputText += "<span class='extra'>" + typedWord + "</span> ";
+      // Increment the number of extra words
+      extraWords++;
       // Increment only the typed index
       typedIndex++;
     }
-    // If the words are not equal and none of the above conditions are met, it means the current words are different in spelling, so mark them as red and underline
+    // If the words are not equal and none of the above conditions are met, it means the current words are different in spelling, so mark them as red and underline and show the correct word in parentheses
     else {
-      outputText += "<span class='spelling'>" + typedWord + "</span> ";
+      outputText += "<span class='spelling'>" + typedWord + " (" + originalWord + ")</span> ";
+      // Increment the number of spelling mistakes
+      spellingMistakes++;
       // Increment both indexes
       originalIndex++;
       typedIndex++;
@@ -59,13 +68,21 @@ function compareWords(originalWords, typedWords) {
   // If there are any remaining words in the original array, mark them as green and bold
   while (originalIndex < originalWords.length) {
     outputText += "<span class='missing'>" + originalWords[originalIndex] + "</span> ";
+    // Increment the number of missing words
+    missingWords++;
     originalIndex++;
   }
   // If there are any remaining words in the typed array, mark them as blue and line-through
   while (typedIndex < typedWords.length) {
     outputText += "<span class='extra'>" + typedWords[typedIndex] + "</span> ";
+    // Increment the number of extra words
+    extraWords++;
     typedIndex++;
   }
+  // Append the total number of mistakes at the end of the output text
+  outputText += "\n\nTotal number of spelling mistakes: " + spellingMistakes + "\n";
+  outputText += "Total number of missing words: " + missingWords + "\n";
+  outputText += "Total number of extra words: " + extraWords + "\n";
 }
 
 // The function to mark the differences and append them to the output text
@@ -84,25 +101,11 @@ function displayOutput() {
   var output = document.getElementById("result");
   // Set the output div inner HTML to the output text
   output.innerHTML = outputText;
-  // Reset the output text
+  // Reset the output text and the number of mistakes
   outputText = "";
+  spellingMistakes = 0;
+  missingWords = 0;
+  extraWords = 0;
 }
 
-// The function to compare the texts and display the output
-function compareTexts() {
-  // Mark the differences between the texts
-  markDifferences();
-  // Display the output text
-  displayOutput();
-}
-
-// The function to add the event listener to the button
-function addEventListener() {
-  // Get the compare button
-  var button = document.getElementById("compare");
-  // Add an event listener to the button that triggers the compareTexts function when clicked
-  button.addEventListener("click", compareTexts);
-}
-
-// Call the addEventListener function when the web page is loaded
-window.onload = addEventListener;
+// The function to
