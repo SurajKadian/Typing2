@@ -105,7 +105,4 @@ function displayOutput() {
   outputText = "";
   spellingMistakes = 0;
   missingWords = 0;
-  extraWords = 0;
-}
-
-// The function to
+  extraWords = 0
