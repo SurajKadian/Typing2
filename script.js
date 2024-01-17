@@ -105,4 +105,28 @@ function displayOutput() {
   outputText = "";
   spellingMistakes = 0;
   missingWords = 0;
-  extraWords = 0
+  extraWords = 0;
+}
+
+// Add event listener for the "compare" button
+document.getElementById("compare").addEventListener("click", function () {
+  markDifferences();
+});
+
+// Add event listener for the "reset" button
+document.getElementById("reset").addEventListener("click", function () {
+  resetComparison();
+});
+
+// The function to reset the comparison and clear the result
+function resetComparison() {
+  // Get the output div
+  var output = document.getElementById("result");
+  // Clear the output div
+  output.innerHTML = "";
+  // Reset the output text and the number of mistakes
+  outputText = "";
+  spellingMistakes = 0;
+  missingWords = 0;
+  extraWords = 0;
+}
