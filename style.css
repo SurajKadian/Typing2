@@ -1,0 +1,88 @@
+/* The style sheet for the text comparison program */
+
+/* The font family and size for the whole web page */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* The alignment and margin for the header */
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+/* The alignment and margin for the paragraph */
+p {
+  text-align: center;
+  margin: 10px;
+}
+
+/* The layout and margin for the container div */
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+/* The layout and margin for the text area divs */
+.text-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+/* The style and margin for the labels */
+label {
+  font-weight: bold;
+  margin: 10px;
+}
+
+/* The style and margin for the text areas */
+textarea {
+  border: 1px solid black;
+  margin: 10px;
+}
+
+/* The style and margin for the button */
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  border: none;
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+/* The style for the output div */
+.output {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The style for the output text area */
+#result {
+  border: 1px solid black;
+  margin: 10px;
+  background-color: lightgray;
+}
+
+/* The style for the spelling errors */
+.spelling {
+  color: red;
+  text-decoration: underline;
+}
+
+/* The style for the missing words */
+.missing {
+  color: green;
+  font-weight: bold;
+}
+
+/* The style for the extra words */
+.extra {
+  color: blue;
+  text-decoration: line-through;
+}
