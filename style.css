@@ -43,12 +43,14 @@ label {
 textarea {
   border: 1px solid black;
   margin: 10px;
+  /* Use a monospace font for the text areas */
+  font-family: monospace;
 }
 
-/* The style and margin for the button */
+/* The style and margin for the buttons */
 button {
-  display: block;
-  margin: 10px auto;
+  display: inline-block;
+  margin: 10px;
   padding: 10px;
   border: none;
   background-color: lightblue;
@@ -67,9 +69,12 @@ button {
   border: 1px solid black;
   margin: 10px;
   background-color: lightgray;
-  width: 800px;
+  /* Make the output area the same size and shape as the input text areas */
+  width: 500px;
   height: 200px;
   overflow: auto;
+  /* Use a monospace font for the output area */
+  font-family: monospace;
 }
 
 /* The style for the spelling errors */
