@@ -6,18 +6,21 @@
 </head>
 <body>
   <h1>Text Comparison Program</h1>
-  <p>Enter the original text and the typed text in the text areas below and click the compare button to see the differences.</p>
+  <p>Enter the original text and the comparison text in the text areas below and click the compare button to see the differences.</p>
   <div class="container">
     <div class="text-area">
       <label for="original">Original Text</label>
       <textarea id="original" rows="10" cols="50"></textarea>
     </div>
     <div class="text-area">
-      <label for="typed">Typed Text</label>
+      <!-- Change the label for the typed text area to comparison text -->
+      <label for="typed">Comparison Text</label>
       <textarea id="typed" rows="10" cols="50"></textarea>
     </div>
   </div>
   <button id="compare">Compare</button>
+  <!-- Add a reset button to clear the input and output texts and reset the program -->
+  <button id="reset">Reset</button>
   <div class="output">
     <label for="result">Output Text</label>
     <!-- Use a div instead of a text area for the output -->
