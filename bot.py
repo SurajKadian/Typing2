@@ -43,10 +43,51 @@ def compare_texts(user_id, input_texts):
     # Delete the user id from the input texts dictionary
     del input_texts[user_id]
 
-# Additional functions (mark_differences implementation needed here)
 def mark_differences(user_id, original_text, typed_text):
-    # Your existing compareWords and other logic here, adjusted to use user_id and update counts accordingly
-    # ...
+    global input_texts
+
+    # Get the input texts as arrays of words
+    original_words = original_text.split(" ")
+    typed_words = typed_text.split(" ")
+
+    # Initialize user-specific counts
+    spelling_errors[user_id] = 0
+    missing_words[user_id] = 0
+    extra_words[user_id] = 0
+    total_words[user_id] = 0
+
+    # Initialize the indexes for the original words and the typed words
+    original_index = 0
+    typed_index = 0
+
+    # Loop through the words until one of the arrays is exhausted
+    while original_index < len(original_words) and typed_index < len(typed_words):
+        original_word = original_words[original_index]
+        typed_word = typed_words[typed_index]
+
+        # Your existing comparison logic here, adjusted to use user_id and update counts accordingly
+        # ...
+
+    # Remaining code for marking missing and extra words after the loop
+    while original_index < len(original_words):
+        # Mark missing words
+        missing_words[user_id] += 1
+        original_index += 1
+
+    while typed_index < len(typed_words):
+        # Mark extra words
+        extra_words[user_id] += 1
+        typed_index += 1
+
+    # Calculate total words
+    total_words[user_id] = len(original_words) + len(typed_words)
+
+    # Display the results for testing (you can remove this in production)
+    print(f"User: {user_id}")
+    print(f"Spelling Errors: {spelling_errors[user_id]}")
+    print(f"Missing Words: {missing_words[user_id]}")
+    print(f"Extra Words: {extra_words[user_id]}")
+    print(f"Total Words: {total_words[user_id]}")
 
 # Initialize variables for counts per user
 spelling_errors = {}
